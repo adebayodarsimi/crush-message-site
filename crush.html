@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Just for You 💌</title>
+
+  <!-- Font Awesome Icons -->
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    crossorigin="anonymous"
+  />
+
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(to top right, #ffe6f0, #ffeaf6);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      text-align: center;
+    }
+
+    .heart-bg {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      z-index: -1;
+    }
+
+    .heart {
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      background-color: pink;
+      transform: rotate(45deg);
+      animation: float 10s linear infinite;
+      opacity: 0.4;
+    }
+
+    .heart::before,
+    .heart::after {
+      content: "";
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      background-color: pink;
+      border-radius: 50%;
+    }
+
+    .heart::before {
+      top: -10px;
+      left: 0;
+    }
+
+    .heart::after {
+      left: -10px;
+      top: 0;
+    }
+
+    @keyframes float {
+      0% {
+        transform: translateY(0) rotate(45deg);
+        opacity: 0.5;
+      }
+      100% {
+        transform: translateY(-120vh) rotate(45deg);
+        opacity: 0;
+      }
+    }
+
+    .message-box {
+      background: white;
+      padding: 30px 25px;
+      border-radius: 15px;
+      box-shadow: 0 6px 30px rgba(0, 0, 0, 0.15);
+      max-width: 90%;
+      width: 400px;
+      z-index: 1;
+    }
+
+    .message-box h1 {
+      color: #d63384;
+      font-size: 28px;
+      margin-bottom: 15px;
+    }
+
+    .pickup-line {
+      font-size: 20px;
+      color: #444;
+      margin-bottom: 20px;
+      line-height: 1.4;
+    }
+
+    .footer-note {
+      font-size: 14px;
+      color: #666;
+    }
+
+    footer {
+    background: transparent;
+    padding: 20px;
+    font-family: 'Comic Sans MS', cursive;
+    color: #b0006d;
+    text-align: center;
+    width: 100%;
+    position: relative;
+    z-index: 2;
+  }
+
+  footer a {
+    color: #d63384;
+    text-decoration: none;
+    font-weight: bold;
+  }
+
+  footer i {
+    margin-right: 5px;
+  }
+
+    @media (max-width: 600px) {
+      .message-box {
+        padding: 20px;
+      }
+      .pickup-line {
+        font-size: 18px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="heart-bg" id="heart-bg"></div>
+
+  <div class="message-box">
+    <h1>Hey You 💖</h1>
+    <div class="pickup-line" id="pickup-line"></div>
+    <div class="footer-note">You are special to me 😊</div>
+  </div>
+
+  <footer>
+    <footer>
+        <p>This message might just be a webpage, but the feelings behind it are real 😊</p>
+  <p><strong>Created with 💖 by Adebayo Oluwadarsimi</strong></p>
+  <P>Share the link to your crush</P>
+  <p>
+    TikTok: <a href="https://www.tiktok.com/@ki5282728" target="_blank" style="color: #d63384;">@ki5282728</a><br>
+    WhatsApp: <a href="https://wa.me/+2349125603112" target="_blank" style="color: #d63384;">+234XXXXXXXXXX</a><br>
+    Gmail: <a href="mailto:adebayodarasimi5@gmail.com" style="color: #d63384;">adebayodarasimi5@gmail.com</a>
+      </footer>
+      
+  </footer>
+
+  <script>
+    const lines = [
+      // Romantic
+      "Are you a magician? Because whenever I look at you, everyone else disappears.",
+      "You must be made of copper and tellurium—because you’re Cu-Te.",
+      "If I could rearrange the alphabet, I’d put U and I together.",
+      "You light up my world like nobody else.",
+      // Funny
+      "Do you have a map? Because I just got lost in your DMs.",
+      "Are you Wi-Fi? Because I'm feeling a strong connection.",
+      "You must be a bank loan—because you’ve got my interest.",
+      "Are you a parking ticket? Because you’ve got FINE written all over you.",
+      // Poetic
+      "You’re the moon in my darkest night, the spark in my silence.",
+      "Your smile is like sunrise—sudden, soft, and full of promise.",
+      "My heart speaks your name in verses the stars can hear.",
+      "You walked in like a verse, now my life rhymes."
+    ];
+
+    // Show a random pickup line
+    document.getElementById("pickup-line").textContent =
+      lines[Math.floor(Math.random() * lines.length)];
+
+   
+    const heartContainer = document.getElementById("heart-bg");
+    for (let i = 0; i < 40; i++) {
+      const heart = document.createElement("div");
+      heart.className = "heart";
+      heart.style.left = Math.random() * 100 + "vw";
+      heart.style.bottom = "-20px";
+      heart.style.animationDuration = 8 + Math.random() * 5 + "s";
+      heart.style.opacity = 0.2 + Math.random() * 0.5;
+      heart.style.transform = `rotate(45deg) scale(${0.4 + Math.random() * 0.8})`;
+      heartContainer.appendChild(heart);
+    }
+  </script>
+</body>
+</html>
